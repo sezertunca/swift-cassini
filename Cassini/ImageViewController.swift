@@ -28,6 +28,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate
     {
         if let url = imageURL
         {
+            spinner?.startAnimating()
             dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0))
             {
                 let contentsOfURL = NSData(contentsOfURL: url)
@@ -42,8 +43,12 @@ class ImageViewController: UIViewController, UIScrollViewDelegate
                         }
                         else
                         {
-                            print("Ignored data from URL: \(url)")
+                            self.spinner?.stopAnimating()
                         }
+                    }
+                    else
+                    {
+                        print("Ignored data from URL: \(url)")
                     }
                 }
             }
@@ -60,6 +65,9 @@ class ImageViewController: UIViewController, UIScrollViewDelegate
             scrollView.maximumZoomScale = 2.0
         }
     }
+    
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
     
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView?
     {
@@ -79,6 +87,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate
             imageView.image = newValue
             imageView.sizeToFit()
             scrollView?.contentSize = imageView.frame.size
+            spinner?.stopAnimating()
         }
     }
     

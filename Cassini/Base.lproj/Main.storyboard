@@ -87,9 +87,15 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bK1-xR-xeO">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </scrollView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="EIu-Vh-vkq">
+                                <rect key="frame" x="281" y="282" width="37" height="37"/>
+                                <color key="color" red="0.37288230657577515" green="0.59609329700469971" blue="0.89376872777938843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="EIu-Vh-vkq" firstAttribute="centerY" secondItem="bK1-xR-xeO" secondAttribute="centerY" id="4QA-kz-7zi"/>
+                            <constraint firstItem="EIu-Vh-vkq" firstAttribute="centerX" secondItem="bK1-xR-xeO" secondAttribute="centerX" id="97c-gx-AEI"/>
                             <constraint firstAttribute="trailing" secondItem="bK1-xR-xeO" secondAttribute="trailing" id="Awa-Qw-FGe"/>
                             <constraint firstItem="bK1-xR-xeO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="DsD-O4-dS1"/>
                             <constraint firstItem="bK1-xR-xeO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="vKj-LC-HsL"/>
@@ -99,6 +105,7 @@
                     <navigationItem key="navigationItem" id="o4c-zY-5E8"/>
                     <connections>
                         <outlet property="scrollView" destination="bK1-xR-xeO" id="hWt-ZO-i3E"/>
+                        <outlet property="spinner" destination="EIu-Vh-vkq" id="8Xj-dR-g2M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
