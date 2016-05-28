@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageViewController: UIViewController
+class ImageViewController: UIViewController, UIScrollViewDelegate
 {
     
     var imageURL: NSURL?
@@ -36,7 +36,15 @@ class ImageViewController: UIViewController
         didSet
         {
             scrollView?.contentSize = imageView.frame.size
+            scrollView.delegate = self
+            scrollView.minimumZoomScale = 0.03
+            scrollView.maximumZoomScale = 2.0
         }
+    }
+    
+    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView?
+    {
+        return imageView
     }
     
     private var imageView = UIImageView()
@@ -61,8 +69,6 @@ class ImageViewController: UIViewController
         super.viewDidLoad()
 
         scrollView.addSubview(imageView)
-        
-        imageURL = NSURL(string: DemoURL.Stanford)
     }
 
 
